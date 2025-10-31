@@ -66,7 +66,7 @@ function postValidationHandler(request, response, next) {
   return next();
 }
 
-async function postHandler(request, response) {
+export async function postHandler(request, response) {
   const userTryingToCreate = request.context.user;
   const insecureInputValues = request.body;
   const secureInputValues = authorization.filterInput(userTryingToCreate, 'create:user', insecureInputValues);
