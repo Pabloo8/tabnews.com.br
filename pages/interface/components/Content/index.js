@@ -244,7 +244,11 @@ function ViewMode({ setComponentMode, contentObject, isPageRootOwner, viewFrame 
         )}
       </Box>
       <Box sx={{ overflow: 'hidden' }}>
-        <Viewer value={contentObject.body} clobberPrefix={`${contentObject.owner_username}-content-`} />
+        <Viewer
+          value={contentObject.body.replace(/^# /, '## ')}
+          clobberPrefix={`${contentObject.owner_username}-content-`}
+        />
+
       </Box>
       {contentObject.source_url && (
         <Box>
